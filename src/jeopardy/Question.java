@@ -12,4 +12,20 @@ public class Question {
         _value = value;
         _completed = completed;
     }
+
+    public String getQuestion() {
+        return _question;
+    }
+
+    public String getAnswer() {
+        return _answer;
+    }
+
+    public int getValue() {
+        return _value;
+    }
+
+    public boolean isCompleted() {
+        return _completed;
+    }
 }
