@@ -18,17 +18,7 @@ public class Controller {
 
     public void loadQuestions() throws IOException {
 
-        // Create file structure if it doesn't exist
-        if(!_saveFolder.exists()) {
-            _answeredFolder.mkdirs();
-            _winningsFolder.mkdir();
-            new File("./.save/winnings/0").createNewFile();
-
-            // Create folders for each category in the save folder
-            for (String name : _categoriesFolder.list()) {
-                new File("./.save/answered/" + name).mkdir();
-            }
-        }
+        createFileStructure();
 
         for(File categoryFile : _categoryFiles) {
             // Read every line of category file
@@ -51,6 +41,19 @@ public class Controller {
             }
 
             _questionData.add(category);
+        }
+    }
+
+    private void createFileStructure() throws IOException {
+        if(!_saveFolder.exists()) {
+            _answeredFolder.mkdirs();
+            _winningsFolder.mkdir();
+            new File("./.save/winnings/0").createNewFile();
+
+            // Create folders for each category in the save folder
+            for (String name : _categoriesFolder.list()) {
+                new File("./.save/answered/" + name).mkdir();
+            }
         }
     }
 
