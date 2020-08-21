@@ -14,4 +14,12 @@ public class Category {
     public void addQuestion(Question question) {
         _questions.add(question);
     }
+
+    public String getCategoryName() {
+        return _categoryName;
+    }
+
+    public List<Question> getQuestions() {
+        return _questions;
+    }
 }
