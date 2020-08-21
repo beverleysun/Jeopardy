@@ -18,8 +18,14 @@ public class Jeopardy extends Application {
     }
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         stage.setTitle("Jeopardy");
+        Scene startScene = getStartScene();
+        stage.setScene(startScene);
+        stage.show();
+    }
+
+    public Scene getStartScene() {
         Group root = new Group();
         Scene scene = new Scene(root, 600, 400);
 
@@ -27,6 +33,7 @@ public class Jeopardy extends Application {
         Button startButton = new Button("Start");
         startButton.setPrefWidth(100);
 
+        // Bind position to the window dimensions
         jeopardyLabel.layoutYProperty().bind(scene.heightProperty().divide(2).subtract(startButton.prefHeight(-1)+50));
         jeopardyLabel.layoutXProperty().bind(scene.widthProperty().divide(2).subtract(jeopardyLabel.prefWidth(-1)/2));
 
@@ -35,8 +42,6 @@ public class Jeopardy extends Application {
 
         root.getChildren().addAll(jeopardyLabel, startButton);
 
-        stage.setScene(scene);
-
-        stage.show();
+        return scene;
     }
 }
