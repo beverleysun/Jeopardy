@@ -16,31 +16,35 @@ public class Controller {
 
     private final List<Category> _questionData = new ArrayList<>();
 
-    public void loadQuestions() throws IOException {
+    public void loadQuestions() {
 
-        createFileStructure();
+        try {
+            createFileStructure();
 
-        for(File categoryFile : _categoryFiles) {
-            // Read every line of category file
-            BufferedReader reader = new BufferedReader(new FileReader(categoryFile));
-            Category category = new Category(categoryFile.getName());
-            String questionLine;
+            for(File categoryFile : _categoryFiles) {
+                // Read every line of category file
+                BufferedReader reader = new BufferedReader(new FileReader(categoryFile));
+                Category category = new Category(categoryFile.getName());
+                String questionLine;
 
-            while((questionLine = reader.readLine()) != null) {
-                String[] questionData = questionLine.split(",");
+                while((questionLine = reader.readLine()) != null) {
+                    String[] questionData = questionLine.split(",");
 
-                // Extract information from the question line
-                int value = Integer.parseInt(questionData[0].trim());
-                String question = questionData[1].trim();
-                String answer = questionData[2].trim();
+                    // Extract information from the question line
+                    int value = Integer.parseInt(questionData[0].trim());
+                    String question = questionData[1].trim();
+                    String answer = questionData[2].trim();
 
-                // Check if question has been answered
-                boolean answered = isAnswered(categoryFile.getName(), value);
+                    // Check if question has been answered
+                    boolean answered = isAnswered(categoryFile.getName(), value);
 
-                category.addQuestion(new Question(question, answer, value, answered));
+                    category.addQuestion(new Question(question, answer, value, answered));
+                }
+
+                _questionData.add(category);
             }
-
-            _questionData.add(category);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
