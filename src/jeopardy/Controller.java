@@ -1,10 +1,6 @@
 package jeopardy;
 
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.io.BufferedReader;
@@ -23,7 +19,11 @@ public class Controller {
 
     private final List<Category> _questionData = new ArrayList<>();
 
-    public void loadQuestions() {
+    public Controller() {
+        loadQuestions();
+    }
+
+    private void loadQuestions() {
 
         try {
             createFileStructure();
@@ -72,58 +72,12 @@ public class Controller {
         return new File("./.save/answered/" + category + "/" + value).exists();
     }
 
-    public Scene getQuestionBoardScene(Scene scene) {
-        int margin = 70;
+    public List<Category> getQuestionData() {
+        return _questionData;
+    }
 
-        GridPane root = new GridPane();
-        scene = new Scene(root, scene.getWidth(), scene.getHeight());
-        Label prompt = new Label("Choose a question");
-
-        // Set gaps between cells
-        root.setHgap(20);
-        root.setVgap(20);
-        root.add(prompt, 0,0, _questionData.size(),1);
-        root.setAlignment(Pos.CENTER);
-
-        prompt.prefWidthProperty().bind(scene.widthProperty().subtract(margin).add(20));
-        prompt.setPrefHeight(50);
-        prompt.getStyleClass().add("prompt");
-
-        // Display category
-        int colIdx = 0;
-        for (Category category : _questionData) {
-            Label categoryLabel = new Label(category.getCategoryName().toUpperCase());
-            categoryLabel.prefWidthProperty().bind(scene.widthProperty().subtract(margin).divide(_questionData.size()));
-            categoryLabel.getStyleClass().add("category-label");
-
-            root.add(categoryLabel, colIdx, 1, 1, 1);
-
-            int rowIdx = 2;
-
-            // Display question values under category name
-            for (Question question : category.getQuestions()) {
-                Button questionButton = new Button("$" + question.getValueString());
-
-                // Set unique IDs
-                questionButton.setId(category.getCategoryName() + "," + question.getValue());
-                questionButton.getStyleClass().add("question-button");
-
-                // Bind sizes of buttons to window size
-                questionButton.prefWidthProperty().bind(scene.widthProperty().subtract(margin).divide(_questionData.size()));
-                questionButton.prefHeightProperty().bind(scene.heightProperty().subtract(margin).divide(_questionData.get(0).getQuestions().size()+2));
-
-                // Disable question button if question already answered
-                if (question.isCompleted()) {
-                    questionButton.setDisable(true);
-                }
-                root.add(questionButton, colIdx, rowIdx, 1, 1);
-                rowIdx++;
-            }
-            colIdx++;
-        }
-        root.setId("background");
-        scene.getStylesheets().add("style.css");
-
-        return scene;
+    public static void showScene(Stage stage, Scene scene) {
+        stage.setScene(scene);
+        stage.show();
     }
 }
