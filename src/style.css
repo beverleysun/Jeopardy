@@ -1,62 +1,48 @@
-#start-button{
-    -fx-background-color: rgb(220,38,136);
+#start-button, .question-button {
     -fx-font-family: 'Courier New';
     -fx-font-size: 20;
     -fx-text-fill: "white";
     -fx-padding: 10,8,10,8;
     -fx-font-weight: bold;
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.5) , 15 , 0 , 0 , 0 );
     -fx-background-radius: 5;
 }
 
-#start-button:hover{
-    -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.2) , 10 , 0 , 0 , 0 );
-    -fx-cursor: hand;
-}
-
-#start-jeopardy {
-    -fx-font-family: 'Courier New';
-    -fx-font-size: 60;
-    -fx-text-fill: "white";
-    -fx-alignment: center;
-    -fx-font-weight: bold;
-}
-
-#background{
-    -fx-background-image: url("bg.png");
-    -fx-background-position: center center;
-    -fx-background-repeat: stretch;
+#start-button{
+    -fx-background-color: rgb(220,38,136);
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.5) , 15 , 0 , 0 , 0 );
 }
 
 .question-button {
     -fx-background-color: rgb(85,189,202);
-    -fx-font-family: 'Courier New';
-    -fx-font-size: 20;
-    -fx-text-fill: "white";
-    -fx-padding: 10,8,10,8;
-    -fx-font-weight: bold;
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 15 , 0 , 0 , 0 );
-    -fx-background-radius:5;
-    -fx-background-insets: 0;
 }
 
-.question-button:hover {
-    -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.7) , 15 , 0 , 0 , 0 );
+#start-button:hover, .question-button:hover {
+    -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.2) , 13 , 0 , 0 , 0 );
     -fx-cursor: hand;
 }
 
-.category-label {
+#start-jeopardy, .category-label, .prompt {
     -fx-font-family: 'Courier New';
-    -fx-font-size: 24;
     -fx-text-fill: "white";
     -fx-alignment: center;
     -fx-font-weight: bold;
 }
 
+#start-jeopardy {
+    -fx-font-size: 60;
+}
+
+.category-label {
+    -fx-font-size: 24;
+}
+
 .prompt {
-    -fx-font-family: 'Courier New';
     -fx-font-size: 30;
-    -fx-text-fill: "white";
-    -fx-alignment: center;
-    -fx-font-weight: bold;
+}
+
+#background {
+    -fx-background-image: url("bg.png");
+    -fx-background-position: center center;
+    -fx-background-repeat: stretch;
 }
