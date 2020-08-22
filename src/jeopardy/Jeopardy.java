@@ -7,13 +7,9 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-import java.io.IOException;
-
 public class Jeopardy extends Application {
 
-    public static void main(String[] args) throws IOException {
-        Controller controller = new Controller();
-        controller.loadQuestions();
+    public static void main(String[] args) {
         launch(args);
     }
 
