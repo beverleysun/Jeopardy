@@ -19,8 +19,18 @@ public class Controller {
 
     private final List<Category> _questionData = new ArrayList<>();
 
-    public Controller() {
+    private static Controller _controller;
+
+    private Controller() {
         loadQuestions();
+    }
+
+    public static Controller getInstance() {
+        if (_controller == null ) {
+            _controller = new Controller();
+        }
+
+        return _controller;
     }
 
     private void loadQuestions() {
@@ -79,5 +89,10 @@ public class Controller {
     public static void showScene(Stage stage, Scene scene) {
         stage.setScene(scene);
         stage.show();
+    }
+
+    public int getWinnings() {
+        String[] winnings = _winningsFolder.list();
+        return Integer.parseInt(winnings[0]);
     }
 }
