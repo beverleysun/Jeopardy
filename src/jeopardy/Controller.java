@@ -72,11 +72,11 @@ public class Controller {
         return new File("./.save/answered/" + category + "/" + value).exists();
     }
 
-    public Scene getQuestionBoardScene(Stage stage) {
+    public Scene getQuestionBoardScene(Scene scene) {
         int margin = 70;
 
         GridPane root = new GridPane();
-        Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
+        scene = new Scene(root, scene.getWidth(), scene.getHeight());
         Label prompt = new Label("Choose a question");
 
         // Set gaps between cells
@@ -85,13 +85,13 @@ public class Controller {
         root.add(prompt, 0,0, _questionData.size(),1);
         root.setAlignment(Pos.TOP_CENTER);
 
-        prompt.prefWidthProperty().bind(stage.widthProperty().subtract(margin));
+        prompt.prefWidthProperty().bind(scene.widthProperty().subtract(margin));
 
         // Display category
         int colIdx = 0;
         for (Category category : _questionData) {
             Label categoryLabel = new Label(category.getCategoryName().toUpperCase());
-            categoryLabel.prefWidthProperty().bind(stage.widthProperty().subtract(margin).divide(_questionData.size()));
+            categoryLabel.prefWidthProperty().bind(scene.widthProperty().subtract(margin).divide(_questionData.size()));
             root.add(categoryLabel, colIdx, 1, 1, 1);
 
             int rowIdx = 2;
@@ -101,8 +101,8 @@ public class Controller {
                 Button questionButton = new Button("$" + question.getValueString());
 
                 // Bind sizes of buttons to window size
-                questionButton.prefWidthProperty().bind(stage.widthProperty().subtract(margin).divide(_questionData.size()));
-                questionButton.prefHeightProperty().bind(stage.heightProperty().subtract(margin).divide(_questionData.get(0).getQuestions().size()+2));
+                questionButton.prefWidthProperty().bind(scene.widthProperty().subtract(margin).divide(_questionData.size()));
+                questionButton.prefHeightProperty().bind(scene.heightProperty().subtract(margin).divide(_questionData.get(0).getQuestions().size()+2));
 
                 // Disable question button if question already answered
                 if (question.isCompleted()) {
@@ -113,6 +113,8 @@ public class Controller {
             }
             colIdx++;
         }
+        root.setId("background");
+        scene.getStylesheets().add("style.css");
 
         return scene;
     }

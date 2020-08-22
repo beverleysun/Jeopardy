@@ -27,7 +27,7 @@ public class Jeopardy extends Application {
         Label jeopardyLabel = new Label("Jeopardy");
         Button startButton = new Button("Start");
         startButton.setPrefWidth(100);
-        startButton.setOnAction(new StartButtonHandler(stage));
+        startButton.setOnAction(new StartButtonHandler(stage, scene));
 
         // Bind position to the window dimensions
         welcomeLabel.layoutYProperty().bind(scene.heightProperty().divide(2).subtract(startButton.prefHeight(-1)+80));
@@ -44,7 +44,7 @@ public class Jeopardy extends Application {
         welcomeLabel.setId("start-welcome");
         jeopardyLabel.setId("start-jeopardy");
         startButton.setId("start-button");
-        root.setId("start-background");
+        root.setId("background");
 
         root.getChildren().addAll(welcomeLabel, jeopardyLabel, startButton);
 
