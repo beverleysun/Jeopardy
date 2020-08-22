@@ -1,10 +1,12 @@
 package jeopardy;
 
 import javafx.application.Application;
+import javafx.geometry.HPos;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class Jeopardy extends Application {
@@ -20,33 +22,36 @@ public class Jeopardy extends Application {
     }
 
     public void showStartScene(Stage stage) {
-        Pane root = new Pane();
+        GridPane root = new GridPane();
         Scene scene = new Scene(root, 900, 600);
 
-        Label welcomeLabel = new Label("Welcome to");
-        Label jeopardyLabel = new Label("Jeopardy");
+        // Components
+        Label jeopardyLabel = new Label("JEOPARDY");
         Button startButton = new Button("Start");
+        Button resetButton = new Button("Reset");
+
+        // Alignment of content
+        root.setAlignment(Pos.CENTER);
+        root.setVgap(20);
+        GridPane.setHalignment(startButton, HPos.CENTER);
+        GridPane.setHalignment(resetButton, HPos.CENTER);
+        GridPane.setHalignment(jeopardyLabel, HPos.CENTER);
+
+        // Buttons
         startButton.setPrefWidth(100);
         startButton.setOnAction(new StartButtonHandler(stage, scene));
 
-        // Bind position to the window dimensions
-        welcomeLabel.layoutYProperty().bind(scene.heightProperty().divide(2).subtract(startButton.prefHeight(-1)+80));
-        welcomeLabel.minWidthProperty().bind(scene.widthProperty());
-
-        jeopardyLabel.layoutYProperty().bind(scene.heightProperty().divide(2).subtract(startButton.prefHeight(-1)+70));
-        jeopardyLabel.minWidthProperty().bind(scene.widthProperty());
-
-        startButton.layoutYProperty().bind(scene.heightProperty().divide(2).add(25));
-        startButton.layoutXProperty().bind(scene.widthProperty().divide(2).subtract(startButton.prefWidth(-1)/2));
+        resetButton.setPrefWidth(100);
 
         // Set styles
         scene.getStylesheets().add("style.css");
-        welcomeLabel.setId("start-welcome");
         jeopardyLabel.setId("start-jeopardy");
         startButton.setId("start-button");
+        resetButton.setId("start-button");
         root.setId("background");
 
-        root.getChildren().addAll(welcomeLabel, jeopardyLabel, startButton);
+        // Add components to the scene
+        root.addColumn(0, jeopardyLabel, startButton, resetButton);
 
         stage.setScene(scene);
         stage.show();
