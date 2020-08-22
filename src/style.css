@@ -5,6 +5,8 @@
     -fx-text-fill: "white";
     -fx-padding: 10,8,10,8;
     -fx-font-weight: bold;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.5) , 15 , 0 , 0 , 0 );
+    -fx-background-radius: 5;
 }
 
 #start-button:hover{
@@ -46,9 +48,23 @@
     -fx-background-insets: 0;
 }
 
-.question-button:hover{
-    -fx-border-color: 'white';
-    -fx-border-width: 2 2 2 2;
+.question-button:hover {
+    -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.7) , 15 , 0 , 0 , 0 );
     -fx-cursor: hand;
-    -fx-border-radius:4;
+}
+
+.category-label {
+    -fx-font-family: 'Courier New';
+    -fx-font-size: 24;
+    -fx-text-fill: "white";
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+}
+
+.prompt {
+    -fx-font-family: 'Courier New';
+    -fx-font-size: 30;
+    -fx-text-fill: "white";
+    -fx-alignment: center;
+    -fx-font-weight: bold;
 }
