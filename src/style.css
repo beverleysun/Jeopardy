@@ -29,7 +29,7 @@
 }
 
 #start-background{
-    -fx-background-image: url("http://www.allwhitebackground.com/images/7/Vector-Background-Free-Picture.png");
+    -fx-background-image: url("bg.png");
     -fx-background-position: center center;
     -fx-background-repeat: stretch;
 }
