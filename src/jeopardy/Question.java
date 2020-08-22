@@ -25,6 +25,10 @@ public class Question {
         return _value;
     }
 
+    public String getValueString() {
+        return Integer.toString(_value);
+    }
+
     public boolean isCompleted() {
         return _completed;
     }
