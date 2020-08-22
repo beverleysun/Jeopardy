@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.util.List;
@@ -62,15 +63,14 @@ public class SceneGenerator {
         root.add(prompt, 0,0, _questionData.size(),1);
         root.setAlignment(Pos.CENTER);
 
-        prompt.prefWidthProperty().bind(scene.widthProperty().subtract(margin).add(20));
-        prompt.setPrefHeight(50);
+        GridPane.setHalignment(prompt, HPos.CENTER);
         prompt.getStyleClass().add("prompt");
 
         // Display category
         int colIdx = 0;
         for (Category category : _questionData) {
             Label categoryLabel = new Label(category.getCategoryName().toUpperCase());
-            categoryLabel.prefWidthProperty().bind(scene.widthProperty().subtract(margin).divide(_questionData.size()));
+            GridPane.setHalignment(categoryLabel, HPos.CENTER);
             categoryLabel.getStyleClass().add("category-label");
 
             root.add(categoryLabel, colIdx, 1, 1, 1);
@@ -89,6 +89,9 @@ public class SceneGenerator {
                 // Bind sizes of buttons to window size
                 questionButton.prefWidthProperty().bind(scene.widthProperty().subtract(margin).divide(_questionData.size()));
                 questionButton.prefHeightProperty().bind(scene.heightProperty().subtract(margin).divide(_questionData.get(0).getQuestions().size()+2));
+                questionButton.setMaxWidth(300);
+                questionButton.setMaxHeight(70);
+                GridPane.setHalignment(questionButton, HPos.CENTER);
 
                 // Disable question button if question already answered
                 if (question.isCompleted()) {
@@ -103,5 +106,9 @@ public class SceneGenerator {
         scene.getStylesheets().add("style.css");
 
         return scene;
+    }
+
+    public static Scene getAskQuestionScene(Stage stage, Scene scene, Question question ) {
+        return new Scene(new Pane(), 700, 700);
     }
 }
