@@ -14,7 +14,8 @@ public class Jeopardy extends Application {
     @Override
     public void start(Stage stage) {
         Scene scene = new Scene(new Pane(), 900, 600);
-        Scene startScene = SceneGenerator.getStartScene(stage, scene);
+        SceneGenerator sceneGenerator = SceneGenerator.getInstance();
+        Scene startScene = sceneGenerator.getStartScene(stage, scene);
         stage.setTitle("Jeopardy");
         Controller.showScene(stage, startScene);
     }
