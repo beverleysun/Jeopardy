@@ -86,12 +86,15 @@ public class Controller {
         root.setAlignment(Pos.TOP_CENTER);
 
         prompt.prefWidthProperty().bind(scene.widthProperty().subtract(margin));
+        prompt.getStyleClass().add("prompt");
 
         // Display category
         int colIdx = 0;
         for (Category category : _questionData) {
             Label categoryLabel = new Label(category.getCategoryName().toUpperCase());
             categoryLabel.prefWidthProperty().bind(scene.widthProperty().subtract(margin).divide(_questionData.size()));
+            categoryLabel.getStyleClass().add("category-label");
+
             root.add(categoryLabel, colIdx, 1, 1, 1);
 
             int rowIdx = 2;
@@ -99,6 +102,10 @@ public class Controller {
             // Display question values under category name
             for (Question question : category.getQuestions()) {
                 Button questionButton = new Button("$" + question.getValueString());
+
+                // Set unique IDs
+                questionButton.setId(category.getCategoryName() + "," + question.getValue());
+                questionButton.getStyleClass().add("question-button");
 
                 // Bind sizes of buttons to window size
                 questionButton.prefWidthProperty().bind(scene.widthProperty().subtract(margin).divide(_questionData.size()));
