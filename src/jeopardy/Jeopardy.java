@@ -1,10 +1,10 @@
 package jeopardy;
 
 import javafx.application.Application;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.text.Text;
+import javafx.scene.control.Label;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -26,21 +26,32 @@ public class Jeopardy extends Application {
     }
 
     public Scene getStartScene() {
-        Group root = new Group();
-        Scene scene = new Scene(root, 600, 400);
+        Pane root = new Pane();
+        Scene scene = new Scene(root, 900, 600);
 
-        Text jeopardyLabel = new Text("Welcome to Jeopardy!");
+        Label welcomeLabel = new Label("Welcome to");
+        Label jeopardyLabel = new Label("Jeopardy");
         Button startButton = new Button("Start");
         startButton.setPrefWidth(100);
 
         // Bind position to the window dimensions
-        jeopardyLabel.layoutYProperty().bind(scene.heightProperty().divide(2).subtract(startButton.prefHeight(-1)+50));
-        jeopardyLabel.layoutXProperty().bind(scene.widthProperty().divide(2).subtract(jeopardyLabel.prefWidth(-1)/2));
+        welcomeLabel.layoutYProperty().bind(scene.heightProperty().divide(2).subtract(startButton.prefHeight(-1)+80));
+        welcomeLabel.minWidthProperty().bind(scene.widthProperty());
 
-        startButton.layoutYProperty().bind(scene.heightProperty().divide(2));
+        jeopardyLabel.layoutYProperty().bind(scene.heightProperty().divide(2).subtract(startButton.prefHeight(-1)+70));
+        jeopardyLabel.minWidthProperty().bind(scene.widthProperty());
+
+        startButton.layoutYProperty().bind(scene.heightProperty().divide(2).add(15));
         startButton.layoutXProperty().bind(scene.widthProperty().divide(2).subtract(startButton.prefWidth(-1)/2));
 
-        root.getChildren().addAll(jeopardyLabel, startButton);
+        // Set styles
+        scene.getStylesheets().add("style.css");
+        welcomeLabel.setId("start-welcome");
+        jeopardyLabel.setId("start-jeopardy");
+        startButton.setId("start-button");
+        root.setId("start-background");
+
+        root.getChildren().addAll(welcomeLabel, jeopardyLabel, startButton);
 
         return scene;
     }
