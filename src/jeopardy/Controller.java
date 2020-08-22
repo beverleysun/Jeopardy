@@ -64,4 +64,8 @@ public class Controller {
     private boolean isAnswered(String category, int value) {
         return new File("./.save/answered/" + category + "/" + value).exists();
     }
+
+    public List<Category> getQuestionData() {
+        return _questionData;
+    }
 }
