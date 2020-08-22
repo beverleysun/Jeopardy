@@ -25,6 +25,7 @@ hs_err_pid*
 # IntelliJ specific files
 .idea/
 *.iml
+/out/
 
 # Generated files
 .save/
