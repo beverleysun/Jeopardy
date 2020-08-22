@@ -41,7 +41,7 @@ public class Jeopardy extends Application {
         jeopardyLabel.layoutYProperty().bind(scene.heightProperty().divide(2).subtract(startButton.prefHeight(-1)+70));
         jeopardyLabel.minWidthProperty().bind(scene.widthProperty());
 
-        startButton.layoutYProperty().bind(scene.heightProperty().divide(2).add(15));
+        startButton.layoutYProperty().bind(scene.heightProperty().divide(2).add(25));
         startButton.layoutXProperty().bind(scene.widthProperty().divide(2).subtract(startButton.prefWidth(-1)/2));
 
         // Set styles
