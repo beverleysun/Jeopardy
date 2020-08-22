@@ -83,9 +83,10 @@ public class Controller {
         root.setHgap(20);
         root.setVgap(20);
         root.add(prompt, 0,0, _questionData.size(),1);
-        root.setAlignment(Pos.TOP_CENTER);
+        root.setAlignment(Pos.CENTER);
 
-        prompt.prefWidthProperty().bind(scene.widthProperty().subtract(margin));
+        prompt.prefWidthProperty().bind(scene.widthProperty().subtract(margin).add(20));
+        prompt.setPrefHeight(50);
         prompt.getStyleClass().add("prompt");
 
         // Display category
