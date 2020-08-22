@@ -1,0 +1,35 @@
+#start-button{
+    -fx-background-color: rgb(220,38,136);
+    -fx-font-family: 'Courier New';
+    -fx-font-size: 20;
+    -fx-text-fill: "white";
+    -fx-padding: 10,8,10,8;
+    -fx-font-weight: bold;
+}
+
+#start-button:hover{
+    -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.2) , 10 , 0 , 0 , 0 );
+    -fx-cursor: hand;
+}
+
+#start-welcome {
+    -fx-font-family: 'Courier New';
+    -fx-font-size: 15;
+    -fx-text-fill: "white";
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+}
+
+#start-jeopardy {
+    -fx-font-family: 'Courier New';
+    -fx-font-size: 60;
+    -fx-text-fill: "white";
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+}
+
+#start-background{
+    -fx-background-image: url("http://www.allwhitebackground.com/images/7/Vector-Background-Free-Picture.png");
+    -fx-background-position: center center;
+    -fx-background-repeat: stretch;
+}
