@@ -7,15 +7,27 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.util.List;
 
 public class SceneGenerator {
-    private static Controller _controller = new Controller();
-    private static List<Category> _questionData = _controller.getQuestionData();
+    private Controller _controller = Controller.getInstance();
+    private List<Category> _questionData = _controller.getQuestionData();
 
-    public static Scene getStartScene(Stage stage, Scene scene) {
+    private SceneGenerator(){}
+
+    private static SceneGenerator _sceneGenerator;
+
+    public static SceneGenerator getInstance() {
+        if (_sceneGenerator == null) {
+            _sceneGenerator = new SceneGenerator();
+        }
+        return _sceneGenerator;
+    }
+
+    public Scene getStartScene(Stage stage, Scene scene) {
         GridPane root = new GridPane();
         scene = new Scene(root, scene.getWidth(), scene.getHeight());
 
@@ -50,18 +62,20 @@ public class SceneGenerator {
         return scene;
     }
 
-    public static Scene getQuestionBoardScene(Stage stage, Scene scene) {
+    public Scene getQuestionBoardScene(Stage stage, Scene scene) {
         int margin = 70;
 
-        GridPane root = new GridPane();
+        StackPane root = new StackPane();
+        GridPane questionBoard = new GridPane();
         scene = new javafx.scene.Scene(root, scene.getWidth(), scene.getHeight());
         Label prompt = new Label("Choose a question");
+        root.getChildren().add(questionBoard);
 
         // Set gaps between cells
-        root.setHgap(20);
-        root.setVgap(20);
-        root.add(prompt, 0,0, _questionData.size(),1);
-        root.setAlignment(Pos.CENTER);
+        questionBoard.setHgap(20);
+        questionBoard.setVgap(20);
+        questionBoard.add(prompt, 0,0, _questionData.size(),1);
+        questionBoard.setAlignment(Pos.CENTER);
 
         GridPane.setHalignment(prompt, HPos.CENTER);
         prompt.getStyleClass().add("prompt");
@@ -73,7 +87,7 @@ public class SceneGenerator {
             GridPane.setHalignment(categoryLabel, HPos.CENTER);
             categoryLabel.getStyleClass().add("category-label");
 
-            root.add(categoryLabel, colIdx, 1, 1, 1);
+            questionBoard.add(categoryLabel, colIdx, 1, 1, 1);
 
             int rowIdx = 2;
 
@@ -97,7 +111,7 @@ public class SceneGenerator {
                 if (question.isCompleted()) {
                     questionButton.setDisable(true);
                 }
-                root.add(questionButton, colIdx, rowIdx, 1, 1);
+                questionBoard.add(questionButton, colIdx, rowIdx, 1, 1);
                 rowIdx++;
             }
             colIdx++;
@@ -108,7 +122,7 @@ public class SceneGenerator {
         return scene;
     }
 
-    public static Scene getAskQuestionScene(Stage stage, Scene scene, Question question ) {
+    public Scene getAskQuestionScene(Stage stage, Scene scene, Question question ) {
         return new Scene(new Pane(), 700, 700);
     }
 }
