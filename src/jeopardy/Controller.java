@@ -1,5 +1,12 @@
 package jeopardy;
 
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -65,7 +72,48 @@ public class Controller {
         return new File("./.save/answered/" + category + "/" + value).exists();
     }
 
-    public List<Category> getQuestionData() {
-        return _questionData;
+    public Scene getQuestionBoardScene(Stage stage) {
+        int margin = 70;
+
+        GridPane root = new GridPane();
+        Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
+        Label prompt = new Label("Choose a question");
+
+        // Set gaps between cells
+        root.setHgap(20);
+        root.setVgap(20);
+        root.add(prompt, 0,0, _questionData.size(),1);
+        root.setAlignment(Pos.TOP_CENTER);
+
+        prompt.prefWidthProperty().bind(stage.widthProperty().subtract(margin));
+
+        // Display category
+        int colIdx = 0;
+        for (Category category : _questionData) {
+            Label categoryLabel = new Label(category.getCategoryName().toUpperCase());
+            categoryLabel.prefWidthProperty().bind(stage.widthProperty().subtract(margin).divide(_questionData.size()));
+            root.add(categoryLabel, colIdx, 1, 1, 1);
+
+            int rowIdx = 2;
+
+            // Display question values under category name
+            for (Question question : category.getQuestions()) {
+                Button questionButton = new Button("$" + question.getValueString());
+
+                // Bind sizes of buttons to window size
+                questionButton.prefWidthProperty().bind(stage.widthProperty().subtract(margin).divide(_questionData.size()));
+                questionButton.prefHeightProperty().bind(stage.heightProperty().subtract(margin).divide(_questionData.get(0).getQuestions().size()+2));
+
+                // Disable question button if question already answered
+                if (question.isCompleted()) {
+                    questionButton.setDisable(true);
+                }
+                root.add(questionButton, colIdx, rowIdx, 1, 1);
+                rowIdx++;
+            }
+            colIdx++;
+        }
+
+        return scene;
     }
 }
