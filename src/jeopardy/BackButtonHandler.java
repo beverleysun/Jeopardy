@@ -14,6 +14,6 @@ public class BackButtonHandler extends ButtonHandler implements EventHandler  {
     @Override
     public void handle(Event event) {
         Scene startScene = _sceneGenerator.getStartScene(_stage, _scene);
-        Controller.getInstance().showScene(_stage, startScene);
+        _controller.showScene(_stage, startScene);
     }
 }

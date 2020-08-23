@@ -9,6 +9,7 @@ public abstract class ButtonHandler implements EventHandler {
     protected final Stage _stage;
     protected final Scene _scene;
     protected final SceneGenerator _sceneGenerator = SceneGenerator.getInstance();
+    protected final Controller _controller = Controller.getInstance();
 
     public ButtonHandler(Stage stage, Scene scene) {
         _stage = stage;
