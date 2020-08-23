@@ -1,4 +1,4 @@
-#start-button, .question-button {
+#start-button, .question-button, .back-button {
     -fx-font-family: 'Courier New';
     -fx-font-size: 20;
     -fx-text-fill: "white";
@@ -7,7 +7,7 @@
     -fx-background-radius: 5;
 }
 
-#start-button{
+#start-button, .back-button{
     -fx-background-color: rgb(220,38,136);
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.5) , 15 , 0 , 0 , 0 );
 }
@@ -17,7 +17,7 @@
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 15 , 0 , 0 , 0 );
 }
 
-#start-button:hover, .question-button:hover {
+#start-button:hover, .question-button:hover, .back-button:hover {
     -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.2) , 13 , 0 , 0 , 0 );
     -fx-cursor: hand;
 }
