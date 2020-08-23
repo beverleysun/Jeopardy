@@ -124,6 +124,8 @@ public class SceneGenerator {
                 questionButton.setId(category.getCategoryName() + "," + question.getValue());
                 questionButton.getStyleClass().add("question-button");
 
+                questionButton.setOnAction(new QuestionButtonHandler(stage, scene));
+
                 // Bind sizes of buttons to window size
                 questionButton.prefWidthProperty().bind(scene.widthProperty().subtract(margin).divide(_questionData.size()));
                 questionButton.prefHeightProperty().bind(scene.heightProperty().subtract(margin).divide(_questionData.get(0).getQuestions().size()+2));
