@@ -74,7 +74,7 @@ public class SceneGenerator {
 
         // Add back button at top right corner
         Button backButton = new Button("Back");
-        backButton.setOnAction(new backButtonHandler(stage, scene));
+        backButton.setOnAction(new BackButtonHandler(stage, scene));
         backButton.getStyleClass().add("back-button");
         StackPane.setAlignment(backButton, Pos.TOP_LEFT);
         StackPane.setMargin(backButton, new Insets(20, 20, 20, 20));
