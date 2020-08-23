@@ -95,4 +95,20 @@ public class Controller {
         String[] winnings = _winningsFolder.list();
         return Integer.parseInt(winnings[0]);
     }
+
+    public void reset() {
+        deleteDirectory(_saveFolder);
+        _questionData.clear();
+        loadQuestions();
+    }
+
+    public void deleteDirectory(File directoryToBeDeleted) {
+        File[] allContents = directoryToBeDeleted.listFiles();
+        if (allContents != null) {
+            for (File file : allContents) {
+                deleteDirectory(file);
+            }
+        }
+        directoryToBeDeleted.delete();
+    }
 }
