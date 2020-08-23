@@ -86,7 +86,7 @@ public class Controller {
         return _questionData;
     }
 
-    public static void showScene(Stage stage, Scene scene) {
+    public void showScene(Stage stage, Scene scene) {
         stage.setScene(scene);
         stage.show();
     }
