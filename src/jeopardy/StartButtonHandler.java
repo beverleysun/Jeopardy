@@ -16,7 +16,8 @@ public class StartButtonHandler implements EventHandler {
 
     @Override
     public void handle(Event event) {
-        Scene questionBoardScene = SceneGenerator.getQuestionBoardScene(_stage, _scene);
+        SceneGenerator sceneGenerator = SceneGenerator.getInstance();
+        Scene questionBoardScene = sceneGenerator.getQuestionBoardScene(_stage, _scene);
         Controller.showScene(_stage, questionBoardScene);
     }
 }
