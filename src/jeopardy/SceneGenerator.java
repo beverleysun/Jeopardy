@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -49,12 +48,13 @@ public class SceneGenerator {
         startButton.setOnAction(new StartButtonHandler(stage, scene));
 
         resetButton.setPrefWidth(100);
+        resetButton.setOnAction(new ResetButtonHandler(stage, scene));
 
         // Set styles
         scene.getStylesheets().add("style.css");
         jeopardyLabel.setId("start-jeopardy");
         startButton.setId("start-button");
-        resetButton.setId("start-button");
+        resetButton.setId("reset-button");
         root.setId("background");
 
         // Add components to the scene
@@ -146,7 +146,42 @@ public class SceneGenerator {
         return scene;
     }
 
-    public Scene getAskQuestionScene(Stage stage, Scene scene, Question question ) {
-        return new Scene(new Pane(), 700, 700);
+    public Scene getResetScene(Stage stage, Scene scene) {
+        GridPane root = new GridPane();
+        scene = new Scene(root, scene.getWidth(), scene.getHeight());
+
+        // Components
+        Label prompt = new Label("Are you sure?");
+        Button yesButton = new Button("Yes");
+        Button noButton = new Button("No");
+
+        // Alignment of content
+        root.setAlignment(Pos.CENTER);
+        root.setVgap(20);
+        root.setHgap(20);
+        GridPane.setHalignment(yesButton, HPos.CENTER);
+        GridPane.setHalignment(noButton, HPos.CENTER);
+        GridPane.setHalignment(prompt, HPos.CENTER);
+
+        // Buttons
+        yesButton.setPrefWidth(100);
+        yesButton.setOnAction(new ResetButtonHandler(stage, scene));
+
+        noButton.setPrefWidth(100);
+        noButton.setOnAction(new ResetButtonHandler(stage, scene));
+
+        // Set styles
+        scene.getStylesheets().add("style.css");
+        prompt.getStyleClass().add("prompt");
+        yesButton.setId("yes-button");
+        noButton.setId("no-button");
+        root.setId("background");
+
+        // Add components to the scene
+        root.add(prompt, 0,0,2,1);
+        root.add(yesButton, 0, 1, 1, 1);
+        root.add(noButton, 1, 1, 1, 1);
+
+        return scene;
     }
 }
