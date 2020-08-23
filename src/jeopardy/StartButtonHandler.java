@@ -5,19 +5,15 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class StartButtonHandler implements EventHandler {
-    private final Stage _stage;
-    private final Scene _scene;
+public class StartButtonHandler extends ButtonHandler implements EventHandler {
 
     public StartButtonHandler(Stage stage, Scene scene) {
-        _stage = stage;
-        _scene = scene;
+        super(stage, scene);
     }
 
     @Override
     public void handle(Event event) {
-        SceneGenerator sceneGenerator = SceneGenerator.getInstance();
-        Scene questionBoardScene = sceneGenerator.getQuestionBoardScene(_stage, _scene);
-        Controller.showScene(_stage, questionBoardScene);
+        Scene questionBoardScene = _sceneGenerator.getQuestionBoardScene(_stage, _scene);
+        Controller.getInstance().showScene(_stage, questionBoardScene);
     }
 }
