@@ -64,7 +64,7 @@ public class SceneGenerator {
     }
 
     public Scene getQuestionBoardScene(Stage stage, Scene scene) {
-        int margin = 70;
+        int margin = 100;
 
         StackPane root = new StackPane();
         GridPane questionBoard = new GridPane();
@@ -127,8 +127,8 @@ public class SceneGenerator {
                 // Bind sizes of buttons to window size
                 questionButton.prefWidthProperty().bind(scene.widthProperty().subtract(margin).divide(_questionData.size()));
                 questionButton.prefHeightProperty().bind(scene.heightProperty().subtract(margin).divide(_questionData.get(0).getQuestions().size()+2));
-                questionButton.setMaxWidth(300);
-                questionButton.setMaxHeight(70);
+                questionButton.setMaxWidth(150);
+                questionButton.setMaxHeight(50);
                 GridPane.setHalignment(questionButton, HPos.CENTER);
 
                 // Disable question button if question already answered
