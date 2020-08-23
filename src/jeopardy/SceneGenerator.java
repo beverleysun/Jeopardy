@@ -1,10 +1,13 @@
 package jeopardy;
 
 import javafx.geometry.HPos;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.geometry.VPos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -70,6 +73,13 @@ public class SceneGenerator {
         scene = new javafx.scene.Scene(root, scene.getWidth(), scene.getHeight());
         Label prompt = new Label("Choose a question");
         root.getChildren().add(questionBoard);
+
+        Button backButton = new Button("Back");
+        backButton.setOnAction(new backButtonHandler(stage, scene));
+        backButton.getStyleClass().add("back-button");
+        StackPane.setAlignment(backButton, Pos.TOP_LEFT);
+        StackPane.setMargin(backButton, new Insets(20, 20, 20, 20));
+        root.getChildren().add(backButton);
 
         // Set gaps between cells
         questionBoard.setHgap(20);
