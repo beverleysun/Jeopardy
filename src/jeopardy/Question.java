@@ -32,4 +32,8 @@ public class Question {
     public boolean isCompleted() {
         return _completed;
     }
+
+    public void setCompleted(boolean completed) {
+        _completed = completed;
+    }
 }
