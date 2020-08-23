@@ -111,4 +111,17 @@ public class Controller {
         }
         directoryToBeDeleted.delete();
     }
+
+    public Question findQuestion(String categoryToFind, String valueToFind) {
+        for (Category category : _questionData) {
+            if (category.getCategoryName().equals(categoryToFind)) {
+                for (Question question : category.getQuestions()) {
+                    if (question.getValueString().equals(valueToFind)) {
+                        return question;
+                    }
+                }
+            }
+        }
+        return null;
+    }
 }
