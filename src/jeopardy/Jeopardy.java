@@ -17,6 +17,6 @@ public class Jeopardy extends Application {
         SceneGenerator sceneGenerator = SceneGenerator.getInstance();
         Scene startScene = sceneGenerator.getStartScene(stage, scene);
         stage.setTitle("Jeopardy");
-        Controller.showScene(stage, startScene);
+        Controller.getInstance().showScene(stage, startScene);
     }
 }
