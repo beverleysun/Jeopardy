@@ -22,9 +22,9 @@
     -fx-cursor: hand;
 }
 
-#start-jeopardy, .category-label, .prompt {
-    -fx-font-family: 'Courier New';
-    -fx-text-fill: "white";
+#start-jeopardy, .category-label, .prompt, .winnings-label {
+    -fx-font-family: "Courier New";
+    -fx-text-fill: white;
     -fx-alignment: center;
     -fx-font-weight: bold;
 }
@@ -33,12 +33,20 @@
     -fx-font-size: 60;
 }
 
-.category-label {
+.category-label, .winnings-label {
     -fx-font-size: 24;
 }
 
 .prompt {
     -fx-font-size: 30;
+}
+
+.winnings-pos {
+    -fx-text-fill: #99ff6f;
+}
+
+.winnings-neg {
+    -fx-text-fill: #ff6060;
 }
 
 #background {
