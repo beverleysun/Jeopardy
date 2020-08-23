@@ -15,7 +15,6 @@ public class QuestionButtonHandler extends ButtonHandler implements EventHandler
 
     @Override
     public void handle(Event event) {
-
         // Extract information
         Button questionButton = (Button) event.getSource();
         String[] questionInfo = questionButton.getId().split(",");
@@ -23,5 +22,11 @@ public class QuestionButtonHandler extends ButtonHandler implements EventHandler
         String value = questionInfo[1];
         Question questionToAsk = _controller.findQuestion(category, value);
 
+        // Save completed data
+        questionToAsk.setCompleted(true);
+        _controller.addCompletedFile(category, value);
+
+//        Scene askQuestionScene = _sceneGenerator.getAskQuestionScene(_stage, _scene, questionToAsk);
+//        _controller.showScene(_stage, askQuestionScene);
     }
 }
