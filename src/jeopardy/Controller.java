@@ -124,4 +124,12 @@ public class Controller {
         }
         return null;
     }
+
+    public void addCompletedFile(String category, String value) {
+        try {
+            new File("./.save/answered/" + category + "/" + value).createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
