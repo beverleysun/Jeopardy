@@ -3,11 +3,9 @@ package jeopardy;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.geometry.VPos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -74,12 +72,28 @@ public class SceneGenerator {
         Label prompt = new Label("Choose a question");
         root.getChildren().add(questionBoard);
 
+        // Add back button at top right corner
         Button backButton = new Button("Back");
         backButton.setOnAction(new backButtonHandler(stage, scene));
         backButton.getStyleClass().add("back-button");
         StackPane.setAlignment(backButton, Pos.TOP_LEFT);
         StackPane.setMargin(backButton, new Insets(20, 20, 20, 20));
         root.getChildren().add(backButton);
+
+        // Add winnings label at top right corner
+        int winnings = _controller.getWinnings();
+        Label winningsLabel = new Label("$" + winnings);
+
+        if (winnings > 0) {
+            winningsLabel.getStyleClass().add("winnings-pos");
+        } else if (winnings < 0){
+            winningsLabel.getStyleClass().add("winnings-neg");
+        }
+        winningsLabel.getStyleClass().add("winnings-label");
+        StackPane.setAlignment(winningsLabel, Pos.TOP_RIGHT);
+        StackPane.setMargin(winningsLabel, new Insets(20, 20, 20, 20));
+        root.getChildren().add(winningsLabel);
+
 
         // Set gaps between cells
         questionBoard.setHgap(20);
