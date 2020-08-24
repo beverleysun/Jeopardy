@@ -186,4 +186,18 @@ public class SceneGenerator {
 
         return scene;
     }
+
+    public Scene getAskQuestionScene(Stage stage, Scene scene, String categoryStr, Question question) {
+        String questionStr = question.getQuestion();
+        String value = question.getValueString();
+        String answer = question.getAnswer();
+
+        GridPane root = new GridPane();
+        scene = new Scene(root, scene.getWidth(), scene.getHeight());
+
+
+
+
+        return scene;
+    }
 }
