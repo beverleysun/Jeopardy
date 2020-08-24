@@ -1,12 +1,11 @@
 package jeopardy;
 
 import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
 
-public class ResetButtonHandler extends ButtonHandler implements EventHandler {
+public class ResetButtonHandler extends ButtonHandler {
 
     public ResetButtonHandler(Stage stage, Scene scene) {
         super(stage, scene);

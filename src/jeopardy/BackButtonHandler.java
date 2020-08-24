@@ -1,11 +1,10 @@
 package jeopardy;
 
 import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class BackButtonHandler extends ButtonHandler implements EventHandler  {
+public class BackButtonHandler extends ButtonHandler {
 
     public BackButtonHandler(Stage stage, Scene scene) {
         super(stage, scene);
