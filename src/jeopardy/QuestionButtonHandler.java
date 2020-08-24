@@ -1,12 +1,11 @@
 package jeopardy;
 
 import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-public class QuestionButtonHandler extends ButtonHandler implements EventHandler {
+public class QuestionButtonHandler extends ButtonHandler {
 
 
     public QuestionButtonHandler(Stage stage, Scene scene) {
@@ -26,7 +25,7 @@ public class QuestionButtonHandler extends ButtonHandler implements EventHandler
         questionToAsk.setCompleted(true);
         _controller.addCompletedFile(category, value);
 
-//        Scene askQuestionScene = _sceneGenerator.getAskQuestionScene(_stage, _scene, questionToAsk);
-//        _controller.showScene(_stage, askQuestionScene);
+        Scene askQuestionScene = _sceneGenerator.getAskQuestionScene(_stage, _scene, category, questionToAsk);
+        _controller.showScene(_stage, askQuestionScene);
     }
 }
