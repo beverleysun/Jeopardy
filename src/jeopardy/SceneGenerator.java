@@ -6,10 +6,19 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.ColumnConstraints;
+import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.util.List;
 
 public class SceneGenerator {
@@ -93,7 +102,6 @@ public class SceneGenerator {
         StackPane.setAlignment(winningsLabel, Pos.TOP_RIGHT);
         StackPane.setMargin(winningsLabel, new Insets(20, 20, 20, 20));
         root.getChildren().add(winningsLabel);
-
 
         // Set gaps between cells
         questionBoard.setHgap(20);
@@ -188,15 +196,57 @@ public class SceneGenerator {
     }
 
     public Scene getAskQuestionScene(Stage stage, Scene scene, String categoryStr, Question question) {
+        // Extract question information
         String questionStr = question.getQuestion();
         String value = question.getValueString();
         String answer = question.getAnswer();
 
+        // Init layout
         GridPane root = new GridPane();
         scene = new Scene(root, scene.getWidth(), scene.getHeight());
 
+        // Components
+        Label questionLabel = new Label(questionStr);
+        Label questionInfo = new Label("Playing " + categoryStr.substring(0,1).toUpperCase() + categoryStr.substring(1) +  " for $" + value);
+        TextField answerInput = new TextField();
+        Button confirmButton = new Button("Confirm");
 
+        // Add components to grid
+        root.add(questionLabel, 0, 0,  2, 1);
+        root.add(questionInfo, 0, 1,  2, 1);
+        root.add(answerInput, 0, 6,  1, 1);
+        root.add(confirmButton, 1, 6,  1, 1);
 
+        // Aligning all components to center
+        GridPane.setHalignment(questionLabel, HPos.CENTER);
+        GridPane.setHalignment(questionInfo, HPos.CENTER);
+        GridPane.setHalignment(answerInput, HPos.RIGHT);
+        GridPane.setHalignment(confirmButton, HPos.LEFT);
+
+        // Wrap labels
+        questionLabel.setWrapText(true);
+        questionLabel.setTextAlignment(TextAlignment.CENTER);
+        questionInfo.setWrapText(true);
+        questionInfo.setTextAlignment(TextAlignment.CENTER);
+
+        // Set layout on grid
+        root.setAlignment(Pos.CENTER);
+        root.setVgap(10);
+        root.setHgap(20);
+        root.setMaxWidth(100);
+        ColumnConstraints column1 = new ColumnConstraints(100,100,Double.MAX_VALUE);
+        column1.setHgrow(Priority.ALWAYS);
+        root.getColumnConstraints().add(column1);
+        root.setPadding(new Insets(70, 70,70,70));
+        answerInput.setMinHeight(confirmButton.getHeight()+44);
+
+        // Styling
+        scene.getStylesheets().add("style.css");
+        root.getStyleClass().add("ask-question-bg");
+        questionLabel.getStyleClass().add("prompt");
+        questionInfo.getStyleClass().add("question-info");
+        answerInput.getStyleClass().add("answer-input");
+        confirmButton.getStyleClass().add("confirm-button");
 
         return scene;
     }
