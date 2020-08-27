@@ -14,10 +14,10 @@ public class ResetButtonHandler extends ButtonHandler {
     @Override
     public void handle(Event event) {
         Button button = (Button) event.getSource();
-        if (button.getId().equals("reset-button")) {
+        if (button.getStyleClass().contains("reset-button")) {
             Scene resetScene = _sceneGenerator.getResetScene(_stage, _scene);
             _controller.showScene(_stage, resetScene);
-        } else if (button.getId().equals("yes-button")) {
+        } else if (button.getStyleClass().contains("yes-button")) {
             Controller.getInstance().reset();
             Scene startScene = _sceneGenerator.getStartScene(_stage, _scene);
             _controller.showScene(_stage, startScene);
