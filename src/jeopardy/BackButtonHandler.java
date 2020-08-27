@@ -1,6 +1,6 @@
 package jeopardy;
 
-import javafx.event.Event;
+import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
@@ -12,7 +12,7 @@ public class BackButtonHandler extends ButtonHandler {
     }
 
     @Override
-    public void handle(Event event) {
+    public void handle(ActionEvent event) {
         Button button = (Button) event.getSource();
         Scene scene;
 

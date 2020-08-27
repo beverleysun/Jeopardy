@@ -1,10 +1,12 @@
 package jeopardy;
 
+import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public abstract class ButtonHandler implements EventHandler {
+public abstract class ButtonHandler implements EventHandler<ActionEvent> {
 
     protected final Stage _stage;
     protected final Scene _scene;

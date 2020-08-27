@@ -1,6 +1,6 @@
 package jeopardy;
 
-import javafx.event.Event;
+import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
@@ -13,7 +13,7 @@ public class QuestionButtonHandler extends ButtonHandler {
     }
 
     @Override
-    public void handle(Event event) {
+    public void handle(ActionEvent event) {
         // Extract information
         Button questionButton = (Button) event.getSource();
         String[] questionInfo = questionButton.getId().split(",");

@@ -1,6 +1,6 @@
 package jeopardy;
 
-import javafx.event.Event;
+import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -11,7 +11,7 @@ public class StartButtonHandler extends ButtonHandler {
     }
 
     @Override
-    public void handle(Event event) {
+    public void handle(ActionEvent event) {
         Scene questionBoardScene = _sceneGenerator.getQuestionBoardScene(_stage, _scene);
         _controller.showScene(_stage, questionBoardScene);
     }

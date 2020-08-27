@@ -1,6 +1,6 @@
 package jeopardy;
 
-import javafx.event.Event;
+import javafx.event.ActionEvent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -18,13 +18,14 @@ public class ConfirmButtonHandler extends ButtonHandler {
     }
 
     @Override
-    public void handle(Event event) {
+    public void handle(ActionEvent event) {
         validateAnswer();
     }
 
     public void validateAnswer() {
         Scene rightWrongScene;
         if (_realAnswer.toLowerCase().trim().equals(_givenAnswer.toLowerCase().trim())) {
+
             _controller.addWinnings(_value);
             rightWrongScene = _sceneGenerator.getRightWrongScene(_stage, _scene, _realAnswer, true);
         } else {
