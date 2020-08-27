@@ -1,7 +1,7 @@
 package jeopardy;
 
-import javafx.event.ActionEvent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.scene.control.Button;
 
@@ -12,7 +12,7 @@ public class ResetButtonHandler extends ButtonHandler {
     }
 
     @Override
-    public void handle(ActionEvent event) {
+    public void handle(MouseEvent event) {
         Button button = (Button) event.getSource();
         if (button.getStyleClass().contains("reset-button")) {
             Scene resetScene = _sceneGenerator.getResetScene(_stage, _scene);

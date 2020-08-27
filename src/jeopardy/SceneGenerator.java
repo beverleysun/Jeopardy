@@ -51,10 +51,10 @@ public class SceneGenerator {
 
         // Buttons
         startButton.setPrefWidth(100);
-        startButton.setOnAction(new StartButtonHandler(stage, scene));
+        startButton.setOnMouseClicked(new StartButtonHandler(stage, scene));
 
         resetButton.setPrefWidth(100);
-        resetButton.setOnAction(new ResetButtonHandler(stage, scene));
+        resetButton.setOnMouseClicked(new ResetButtonHandler(stage, scene));
 
         // Set styles
         scene.getStylesheets().add("style.css");
@@ -82,7 +82,7 @@ public class SceneGenerator {
 
         // Add back button at top right corner
         Button backButton = new Button("Back");
-        backButton.setOnAction(new BackButtonHandler(stage, scene));
+        backButton.setOnMouseClicked(new BackButtonHandler(stage, scene));
         backButton.setId("to-start");
         backButton.getStyleClass().add("back-button");
         StackPane.setAlignment(backButton, Pos.TOP_LEFT);
@@ -126,13 +126,13 @@ public class SceneGenerator {
             // Display question values under category name
             for (Question question : category.getQuestions()) {
                 Button questionButton = new Button("$" + question.getValueString());
-                questionButton.setOnAction(new QuestionButtonHandler(stage, scene));
+                questionButton.setOnMouseClicked(new QuestionButtonHandler(stage, scene));
 
                 // Set unique IDs
                 questionButton.setId(category.getCategoryName() + "," + question.getValue());
                 questionButton.getStyleClass().add("question-button");
 
-                questionButton.setOnAction(new QuestionButtonHandler(stage, scene));
+                questionButton.setOnMouseClicked(new QuestionButtonHandler(stage, scene));
 
                 // Bind sizes of buttons to window size
                 questionButton.prefWidthProperty().bind(scene.widthProperty().subtract(margin).divide(_questionData.size()));
@@ -176,10 +176,10 @@ public class SceneGenerator {
 
         // Buttons
         yesButton.setPrefWidth(100);
-        yesButton.setOnAction(new ResetButtonHandler(stage, scene));
+        yesButton.setOnMouseClicked(new ResetButtonHandler(stage, scene));
 
         noButton.setPrefWidth(100);
-        noButton.setOnAction(new ResetButtonHandler(stage, scene));
+        noButton.setOnMouseClicked(new ResetButtonHandler(stage, scene));
 
         // Set styles
         scene.getStylesheets().add("style.css");
@@ -213,7 +213,7 @@ public class SceneGenerator {
         Button confirmButton = new Button("Confirm");
 
         Scene finalScene = scene;
-        confirmButton.setOnAction(e-> {
+        confirmButton.setOnMouseClicked(e-> {
             new ConfirmButtonHandler(stage, finalScene, answer, answerInput.getText(), value).validateAnswer();
         });
         answerInput.setOnKeyPressed(keyEvent -> {
@@ -280,7 +280,7 @@ public class SceneGenerator {
 
         Button backButton = new Button("Back");
         backButton.setId("to-questions");
-        backButton.setOnAction(new BackButtonHandler(stage, scene));
+        backButton.setOnMouseClicked(new BackButtonHandler(stage, scene));
 
         // Alignment
         root.setAlignment(Pos.CENTER);

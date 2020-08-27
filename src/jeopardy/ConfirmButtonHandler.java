@@ -1,7 +1,7 @@
 package jeopardy;
 
-import javafx.event.ActionEvent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class ConfirmButtonHandler extends ButtonHandler {
@@ -18,7 +18,7 @@ public class ConfirmButtonHandler extends ButtonHandler {
     }
 
     @Override
-    public void handle(ActionEvent event) {
+    public void handle(MouseEvent event) {
         validateAnswer();
     }
 
