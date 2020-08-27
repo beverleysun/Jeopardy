@@ -82,6 +82,7 @@ public class SceneGenerator {
         // Add back button at top right corner
         Button backButton = new Button("Back");
         backButton.setOnAction(new BackButtonHandler(stage, scene));
+        backButton.setId("to-start");
         backButton.getStyleClass().add("back-button");
         StackPane.setAlignment(backButton, Pos.TOP_LEFT);
         StackPane.setMargin(backButton, new Insets(20, 20, 20, 20));
@@ -203,7 +204,6 @@ public class SceneGenerator {
         GridPane root = new GridPane();
         scene = new Scene(root, scene.getWidth(), scene.getHeight());
 
-
         // Components
         Label questionLabel = new Label(questionStr);
         Label questionInfo = new Label("Playing " + categoryStr.substring(0,1).toUpperCase() + categoryStr.substring(1) +  " for $" + value);
@@ -253,12 +253,38 @@ public class SceneGenerator {
 
         // Styling
         scene.getStylesheets().add("style.css");
-        root.getStyleClass().add("ask-question-bg");
+        root.getStyleClass().add("answering-stage");
         questionLabel.getStyleClass().add("prompt");
         questionInfo.getStyleClass().add("question-info");
         answerInput.getStyleClass().add("answer-input");
         confirmButton.getStyleClass().add("confirm-button");
 
+        return scene;
+    }
+
+    public Scene getRightWrongScene(Stage stage, Scene scene, String answer, boolean correct) {
+        GridPane root = new GridPane();
+        scene = new Scene(root, scene.getWidth(), scene.getHeight());
+
+        Label validationLabel;
+
+        if (correct) {
+            validationLabel = new Label("Correct!");
+            validationLabel.getStyleClass().add("correct-label");
+        } else {
+            validationLabel = new Label("Uh oh! The answer was " + answer);
+            validationLabel.getStyleClass().add("incorrect-label");
+        }
+
+        Button backButton = new Button("Back");
+        backButton.setId("to-questions");
+        backButton.setOnAction(new BackButtonHandler(stage, scene));
+
+        root.addColumn(0, validationLabel, backButton);
+
+        scene.getStylesheets().add("style.css");
+        backButton.getStyleClass().add("back-button");
+        root.getStyleClass().add("answering-stage");
         return scene;
     }
 }
