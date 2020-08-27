@@ -1,5 +1,6 @@
 package jeopardy;
 
+import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -7,18 +8,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.ColumnConstraints;
-import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
-import java.awt.*;
 import java.util.List;
 
 public class SceneGenerator {
@@ -198,18 +196,31 @@ public class SceneGenerator {
     public Scene getAskQuestionScene(Stage stage, Scene scene, String categoryStr, Question question) {
         // Extract question information
         String questionStr = question.getQuestion();
-        String value = question.getValueString();
         String answer = question.getAnswer();
+        int value = question.getValue();
 
         // Init layout
         GridPane root = new GridPane();
         scene = new Scene(root, scene.getWidth(), scene.getHeight());
+
 
         // Components
         Label questionLabel = new Label(questionStr);
         Label questionInfo = new Label("Playing " + categoryStr.substring(0,1).toUpperCase() + categoryStr.substring(1) +  " for $" + value);
         TextField answerInput = new TextField();
         Button confirmButton = new Button("Confirm");
+
+        confirmButton.setOnAction(new ConfirmButtonHandler(stage, scene, answer, answerInput.getText(), value));
+        Scene finalScene = scene;
+        answerInput.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent keyEvent) {
+                if (keyEvent.getCode() == KeyCode.ENTER) {
+                    new ConfirmButtonHandler(stage, finalScene, answer, answerInput.getText(), value).validateAnswer();
+                }
+            }
+        });
+
 
         // Add components to grid
         root.add(questionLabel, 0, 0,  2, 1);
