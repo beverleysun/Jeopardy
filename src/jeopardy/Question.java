@@ -1,9 +1,9 @@
 package jeopardy;
 
 public class Question {
-    private String _question;
-    private String _answer;
-    private int _value;
+    private final String _question;
+    private final String _answer;
+    private final int _value;
     private boolean _completed;
 
     public Question(String question, String answer, int value, boolean completed) {

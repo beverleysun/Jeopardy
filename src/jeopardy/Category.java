@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Category {
-    private String _categoryName;
-    private List<Question> _questions = new ArrayList<Question>();
+    private final String _categoryName;
+    private final List<Question> _questions = new ArrayList<Question>();
 
     public Category(String categoryName){
         _categoryName = categoryName;

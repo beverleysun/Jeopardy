@@ -6,9 +6,9 @@ import javafx.stage.Stage;
 
 public class ConfirmButtonHandler extends ButtonHandler {
 
-    private String _realAnswer;
-    private String _givenAnswer;
-    private int _value;
+    private final String _realAnswer;
+    private final String _givenAnswer;
+    private final int _value;
 
     public ConfirmButtonHandler(Stage stage, Scene scene, String realAnswer, String givenAnswer, int value) {
         super(stage, scene);
