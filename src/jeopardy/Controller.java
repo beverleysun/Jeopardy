@@ -132,4 +132,11 @@ public class Controller {
             e.printStackTrace();
         }
     }
+
+    public void addWinnings(int value){
+        String[] winningsStr = _winningsFolder.list();
+        int winningsInt = Integer.parseInt(winningsStr[0]);
+        int newWinnings = winningsInt + value;
+        new File("./.save/winnings/"+ winningsInt).renameTo(new File("./.save/winnings/"+ newWinnings));
+    }
 }
