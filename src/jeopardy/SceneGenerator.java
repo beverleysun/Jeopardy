@@ -1,6 +1,5 @@
 package jeopardy;
 
-import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -9,7 +8,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
@@ -20,8 +18,8 @@ import javafx.stage.Stage;
 import java.util.List;
 
 public class SceneGenerator {
-    private Controller _controller = Controller.getInstance();
-    private List<Category> _questionData = _controller.getQuestionData();
+    private final Controller _controller = Controller.getInstance();
+    private final List<Category> _questionData = _controller.getQuestionData();
 
     private SceneGenerator(){}
 
@@ -35,6 +33,7 @@ public class SceneGenerator {
     }
 
     public Scene getStartScene(Stage stage, Scene scene) {
+        // Init layout
         GridPane root = new GridPane();
         scene = new Scene(root, scene.getWidth(), scene.getHeight());
 
@@ -73,9 +72,11 @@ public class SceneGenerator {
     public Scene getQuestionBoardScene(Stage stage, Scene scene) {
         int margin = 100;
 
+        // Init layout
         StackPane root = new StackPane();
         GridPane questionBoard = new GridPane();
-        scene = new javafx.scene.Scene(root, scene.getWidth(), scene.getHeight());
+        scene = new Scene(root, scene.getWidth(), scene.getHeight());
+
         Label prompt = new Label("Choose a question");
         root.getChildren().add(questionBoard);
 
@@ -156,6 +157,7 @@ public class SceneGenerator {
     }
 
     public Scene getResetScene(Stage stage, Scene scene) {
+        // Init layout
         GridPane root = new GridPane();
         scene = new Scene(root, scene.getWidth(), scene.getHeight());
 
@@ -261,11 +263,12 @@ public class SceneGenerator {
     }
 
     public Scene getRightWrongScene(Stage stage, Scene scene, String answer, boolean correct) {
+        // Init layout
         GridPane root = new GridPane();
         scene = new Scene(root, scene.getWidth(), scene.getHeight());
 
+        // Components
         Label validationLabel;
-
         if (correct) {
             validationLabel = new Label("Correct!");
             validationLabel.getStyleClass().add("correct-label");
@@ -279,6 +282,7 @@ public class SceneGenerator {
         backButton.setId("to-questions");
         backButton.setOnAction(new BackButtonHandler(stage, scene));
 
+        // Alignment
         root.setAlignment(Pos.CENTER);
         root.setVgap(20);
         root.addColumn(0, validationLabel, backButton);
@@ -286,9 +290,11 @@ public class SceneGenerator {
         GridPane.setHalignment(validationLabel, HPos.CENTER);
         GridPane.setHalignment(backButton, HPos.CENTER);
 
+        // Responsive
         validationLabel.setWrapText(true);
         validationLabel.setTextAlignment(TextAlignment.CENTER);
 
+        // Styling
         scene.getStylesheets().add("style.css");
         backButton.getStyleClass().add("back-button");
         root.getStyleClass().add("answering-stage");
