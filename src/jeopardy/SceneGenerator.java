@@ -52,10 +52,10 @@ public class SceneGenerator {
 
         // Set styles
         scene.getStylesheets().add("style.css");
-        jeopardyLabel.setId("start-jeopardy");
-        startButton.setId("start-button");
-        resetButton.setId("reset-button");
-        root.setId("background");
+        jeopardyLabel.getStyleClass().add("start-jeopardy");
+        startButton.getStyleClass().add("start-button");
+        resetButton.getStyleClass().add("reset-button");
+        root.getStyleClass().add("background");
 
         // Add components to the scene
         root.addColumn(0, jeopardyLabel, startButton, resetButton);
@@ -142,7 +142,7 @@ public class SceneGenerator {
             }
             colIdx++;
         }
-        root.setId("background");
+        root.getStyleClass().add("background");
         scene.getStylesheets().add("style.css");
 
         return scene;
@@ -175,9 +175,9 @@ public class SceneGenerator {
         // Set styles
         scene.getStylesheets().add("style.css");
         prompt.getStyleClass().add("prompt");
-        yesButton.setId("yes-button");
-        noButton.setId("no-button");
-        root.setId("background");
+        yesButton.getStyleClass().add("yes-button");
+        noButton.getStyleClass().add("no-button");
+        root.getStyleClass().add("background");
 
         // Add components to the scene
         root.add(prompt, 0,0,2,1);
