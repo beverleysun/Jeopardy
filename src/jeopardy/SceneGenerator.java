@@ -212,15 +212,11 @@ public class SceneGenerator {
 
         confirmButton.setOnAction(new ConfirmButtonHandler(stage, scene, answer, answerInput.getText(), value));
         Scene finalScene = scene;
-        answerInput.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent keyEvent) {
-                if (keyEvent.getCode() == KeyCode.ENTER) {
-                    new ConfirmButtonHandler(stage, finalScene, answer, answerInput.getText(), value).validateAnswer();
-                }
+        answerInput.setOnKeyPressed(keyEvent -> {
+            if (keyEvent.getCode() == KeyCode.ENTER) {
+                new ConfirmButtonHandler(stage, finalScene, answer, answerInput.getText(), value).validateAnswer();
             }
         });
-
 
         // Add components to grid
         root.add(questionLabel, 0, 0,  2, 1);
@@ -275,12 +271,21 @@ public class SceneGenerator {
             validationLabel = new Label("Uh oh! The answer was " + answer);
             validationLabel.getStyleClass().add("incorrect-label");
         }
+        validationLabel.getStyleClass().add("validation-label");
 
         Button backButton = new Button("Back");
         backButton.setId("to-questions");
         backButton.setOnAction(new BackButtonHandler(stage, scene));
 
+        root.setAlignment(Pos.CENTER);
+        root.setVgap(20);
         root.addColumn(0, validationLabel, backButton);
+
+        GridPane.setHalignment(validationLabel, HPos.CENTER);
+        GridPane.setHalignment(backButton, HPos.CENTER);
+
+        validationLabel.setWrapText(true);
+        validationLabel.setTextAlignment(TextAlignment.CENTER);
 
         scene.getStylesheets().add("style.css");
         backButton.getStyleClass().add("back-button");
