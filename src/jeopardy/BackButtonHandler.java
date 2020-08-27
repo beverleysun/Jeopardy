@@ -21,8 +21,6 @@ public class BackButtonHandler extends ButtonHandler {
         } else {
             scene = _sceneGenerator.getQuestionBoardScene(_stage, _scene);
         }
-
         _controller.showScene(_stage, scene);
-
     }
 }
