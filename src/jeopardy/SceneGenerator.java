@@ -210,8 +210,10 @@ public class SceneGenerator {
         TextField answerInput = new TextField();
         Button confirmButton = new Button("Confirm");
 
-        confirmButton.setOnAction(new ConfirmButtonHandler(stage, scene, answer, answerInput.getText(), value));
         Scene finalScene = scene;
+        confirmButton.setOnAction(e-> {
+            new ConfirmButtonHandler(stage, finalScene, answer, answerInput.getText(), value).validateAnswer();
+        });
         answerInput.setOnKeyPressed(keyEvent -> {
             if (keyEvent.getCode() == KeyCode.ENTER) {
                 new ConfirmButtonHandler(stage, finalScene, answer, answerInput.getText(), value).validateAnswer();
