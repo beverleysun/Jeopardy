@@ -1,4 +1,4 @@
-.start-button, .reset-button, .question-button, .back-button, .yes-button, .no-button {
+.start-button, .reset-button, .question-button, .back-button, .yes-button, .no-button, .confirm-button {
     -fx-font-family: 'Courier New';
     -fx-font-size: 20;
     -fx-text-fill: "white";
@@ -12,12 +12,12 @@
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.5) , 15 , 0 , 0 , 0 );
 }
 
-.question-button {
+.question-button, .confirm-button {
     -fx-background-color: rgb(85,189,202);
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 15 , 0 , 0 , 0 );
 }
 
-.start-button:hover, .reset-button:hover, .question-button:hover, .back-button:hover, .yes-button:hover, .no-button:hover {
+.start-button:hover, .reset-button:hover, .question-button:hover, .back-button:hover, .yes-button:hover, .no-button:hover, .confirm-button:hover {
     -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.2) , 13 , 0 , 0 , 0 );
     -fx-cursor: hand;
 }
@@ -30,7 +30,7 @@
     -fx-background-color: #ff6060;
 }
 
-.start-jeopardy, .category-label, .prompt, .winnings-label {
+.start-jeopardy, .category-label, .prompt, .winnings-label, .question-info {
     -fx-font-family: "Courier New";
     -fx-text-fill: white;
     -fx-alignment: center;
@@ -41,7 +41,7 @@
     -fx-font-size: 60;
 }
 
-.category-label, .winnings-label {
+.category-label, .winnings-label, .question-info {
     -fx-font-size: 24;
 }
 
@@ -49,7 +49,12 @@
     -fx-font-size: 30;
 }
 
-.winnings-pos {
+.answer-input {
+    -fx-font-family: "Courier New";
+    -fx-font-size: 20;
+}
+
+.winnings-pos, .question-info {
     -fx-text-fill: #99ff6f;
 }
 
@@ -61,4 +66,7 @@
     -fx-background-image: url("bg.png");
     -fx-background-position: center center;
     -fx-background-repeat: stretch;
+}
+.ask-question-bg {
+    -fx-background-color: #38276b;
 }
