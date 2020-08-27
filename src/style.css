@@ -30,7 +30,7 @@
     -fx-background-color: #ff6060;
 }
 
-.start-jeopardy, .category-label, .prompt, .winnings-label, .question-info {
+.start-jeopardy, .category-label, .prompt, .winnings-label, .question-info, .validation-label {
     -fx-font-family: "Courier New";
     -fx-text-fill: white;
     -fx-alignment: center;
@@ -45,7 +45,7 @@
     -fx-font-size: 24;
 }
 
-.prompt {
+.prompt, .validation-label {
     -fx-font-size: 30;
 }
 
@@ -54,11 +54,11 @@
     -fx-font-size: 20;
 }
 
-.winnings-pos, .question-info {
+.winnings-pos, .question-info, .correct-label {
     -fx-text-fill: #99ff6f;
 }
 
-.winnings-neg {
+.winnings-neg, .incorrect-label {
     -fx-text-fill: #ff6060;
 }
 
@@ -67,6 +67,6 @@
     -fx-background-position: center center;
     -fx-background-repeat: stretch;
 }
-.ask-question-bg {
+.answering-stage {
     -fx-background-color: #38276b;
 }
