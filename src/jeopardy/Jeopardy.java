@@ -19,7 +19,7 @@ public class Jeopardy extends Application {
         Scene startScene = sceneGenerator.getStartScene(stage, scene);
         stage.setTitle("Jeopardy!");
         stage.getIcons().add(new Image(getClass().getResourceAsStream("../logo.png")));
-        stage.setMinHeight(500);
+        stage.setMinHeight(600);
         stage.setMinWidth(Controller.getInstance().getNumCats()*200);
         Controller.getInstance().showScene(stage, startScene);
     }
