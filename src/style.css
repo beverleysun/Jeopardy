@@ -30,7 +30,7 @@
     -fx-background-color: #ff6060;
 }
 
-.start-jeopardy, .category-label, .prompt, .winnings-label, .question-info, .validation-label {
+.start-jeopardy, .category-label, .prompt, .winnings-label, .question-info, .validation-label, .game-completed, .please-reset {
     -fx-font-family: "Courier New";
     -fx-text-fill: white;
     -fx-alignment: center;
@@ -41,11 +41,11 @@
     -fx-font-size: 60;
 }
 
-.category-label, .winnings-label, .question-info {
+.category-label, .winnings-label, .question-info, .please-reset {
     -fx-font-size: 24;
 }
 
-.prompt, .validation-label {
+.prompt, .validation-label, .game-completed {
     -fx-font-size: 30;
 }
 
