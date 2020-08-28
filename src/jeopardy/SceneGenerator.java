@@ -74,11 +74,79 @@ public class SceneGenerator {
 
         // Init layout
         StackPane root = new StackPane();
-        GridPane questionBoard = new GridPane();
         scene = new Scene(root, scene.getWidth(), scene.getHeight());
 
-        Label prompt = new Label("Choose a question");
-        root.getChildren().add(questionBoard);
+        if (!Controller.getInstance().gameCompleted()) {
+            GridPane questionBoard = new GridPane();
+            root.getChildren().add(questionBoard);
+            Label prompt = new Label("Choose a question");
+
+            // Set gaps between cells
+            questionBoard.setHgap(20);
+            questionBoard.setVgap(20);
+            questionBoard.add(prompt, 0, 0, _questionData.size(), 1);
+            questionBoard.setAlignment(Pos.CENTER);
+
+            GridPane.setHalignment(prompt, HPos.CENTER);
+            prompt.getStyleClass().add("prompt");
+
+            // Display category
+            int colIdx = 0;
+            for (Category category : _questionData) {
+                Label categoryLabel = new Label(category.getCategoryName().toUpperCase());
+                GridPane.setHalignment(categoryLabel, HPos.CENTER);
+                categoryLabel.getStyleClass().add("category-label");
+
+                questionBoard.add(categoryLabel, colIdx, 1, 1, 1);
+
+                int rowIdx = 2;
+
+                // Display question values under category name
+                for (Question question : category.getQuestions()) {
+                    Button questionButton = new Button("$" + question.getValueString());
+                    questionButton.setOnMouseClicked(new QuestionButtonHandler(stage, scene));
+
+                    // Set unique IDs
+                    questionButton.setId(category.getCategoryName() + "," + question.getValue());
+                    questionButton.getStyleClass().add("question-button");
+
+                    questionButton.setOnMouseClicked(new QuestionButtonHandler(stage, scene));
+
+                    // Bind sizes of buttons to window size
+                    questionButton.prefWidthProperty().bind(scene.widthProperty().subtract(margin).divide(_questionData.size()));
+                    questionButton.prefHeightProperty().bind(scene.heightProperty().subtract(margin).divide(_questionData.get(0).getQuestions().size() + 2));
+                    questionButton.setMaxWidth(150);
+                    questionButton.setMaxHeight(50);
+                    GridPane.setHalignment(questionButton, HPos.CENTER);
+
+                    // Disable question button if question already answered
+                    if (question.isCompleted()) {
+                        questionButton.setDisable(true);
+                    }
+                    questionBoard.add(questionButton, colIdx, rowIdx, 1, 1);
+                    rowIdx++;
+                }
+                colIdx++;
+            }
+        } else {
+            GridPane grid = new GridPane();
+
+            // Labels
+            Label gameCompletedLabel = new Label("You've completed the game!");
+            Label pleaseResetLabel = new Label("Please reset to play again");
+
+            grid.addColumn(0, gameCompletedLabel, pleaseResetLabel);
+
+            // Layout
+            grid.setAlignment(Pos.CENTER);
+            GridPane.setHalignment(gameCompletedLabel, HPos.CENTER);
+            GridPane.setHalignment(pleaseResetLabel, HPos.CENTER);
+            gameCompletedLabel.getStyleClass().add("game-completed");
+            pleaseResetLabel.getStyleClass().add("please-reset");
+            grid.setVgap(20);
+
+            root.getChildren().add(grid);
+        }
 
         // Add back button at top right corner
         Button backButton = new Button("Back");
@@ -103,53 +171,6 @@ public class SceneGenerator {
         StackPane.setMargin(winningsLabel, new Insets(20, 20, 20, 20));
         root.getChildren().add(winningsLabel);
 
-        // Set gaps between cells
-        questionBoard.setHgap(20);
-        questionBoard.setVgap(20);
-        questionBoard.add(prompt, 0,0, _questionData.size(),1);
-        questionBoard.setAlignment(Pos.CENTER);
-
-        GridPane.setHalignment(prompt, HPos.CENTER);
-        prompt.getStyleClass().add("prompt");
-
-        // Display category
-        int colIdx = 0;
-        for (Category category : _questionData) {
-            Label categoryLabel = new Label(category.getCategoryName().toUpperCase());
-            GridPane.setHalignment(categoryLabel, HPos.CENTER);
-            categoryLabel.getStyleClass().add("category-label");
-
-            questionBoard.add(categoryLabel, colIdx, 1, 1, 1);
-
-            int rowIdx = 2;
-
-            // Display question values under category name
-            for (Question question : category.getQuestions()) {
-                Button questionButton = new Button("$" + question.getValueString());
-                questionButton.setOnMouseClicked(new QuestionButtonHandler(stage, scene));
-
-                // Set unique IDs
-                questionButton.setId(category.getCategoryName() + "," + question.getValue());
-                questionButton.getStyleClass().add("question-button");
-
-                questionButton.setOnMouseClicked(new QuestionButtonHandler(stage, scene));
-
-                // Bind sizes of buttons to window size
-                questionButton.prefWidthProperty().bind(scene.widthProperty().subtract(margin).divide(_questionData.size()));
-                questionButton.prefHeightProperty().bind(scene.heightProperty().subtract(margin).divide(_questionData.get(0).getQuestions().size()+2));
-                questionButton.setMaxWidth(150);
-                questionButton.setMaxHeight(50);
-                GridPane.setHalignment(questionButton, HPos.CENTER);
-
-                // Disable question button if question already answered
-                if (question.isCompleted()) {
-                    questionButton.setDisable(true);
-                }
-                questionBoard.add(questionButton, colIdx, rowIdx, 1, 1);
-                rowIdx++;
-            }
-            colIdx++;
-        }
         root.getStyleClass().add("background");
         scene.getStylesheets().add("style.css");
 
