@@ -1,5 +1,5 @@
 .start-button, .reset-button, .question-button, .back-button, .yes-button, .no-button, .confirm-button {
-    -fx-font-family: 'Courier New';
+    -fx-font-family: 'Silkscreen';
     -fx-font-size: 20;
     -fx-text-fill: "white";
     -fx-padding: 10,8,10,8;
@@ -31,7 +31,7 @@
 }
 
 .start-jeopardy, .category-label, .prompt, .winnings-label, .question-info, .validation-label, .game-completed, .please-reset {
-    -fx-font-family: "Courier New";
+    -fx-font-family: "Silkscreen";
     -fx-text-fill: white;
     -fx-alignment: center;
     -fx-font-weight: bold;
@@ -50,7 +50,7 @@
 }
 
 .answer-input {
-    -fx-font-family: "Courier New";
+    -fx-font-family: "Silkscreen";
     -fx-font-size: 20;
 }
 
@@ -63,7 +63,7 @@
 }
 
 .background {
-    -fx-background-image: url("bg.png");
+    -fx-background-image: url("/assets/bg.png");
     -fx-background-position: center center;
     -fx-background-repeat: stretch;
 }
