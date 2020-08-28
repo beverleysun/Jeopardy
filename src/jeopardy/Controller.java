@@ -18,11 +18,13 @@ public class Controller {
     private final File[] _categoryFiles = _categoriesFolder.listFiles();
 
     private final List<Category> _questionData = new ArrayList<>();
+    private final int _numCats;
 
     private static Controller _controller;
 
     private Controller() {
         loadQuestions();
+        _numCats = _questionData.size();
     }
 
     public static Controller getInstance() {
@@ -84,6 +86,10 @@ public class Controller {
 
     public List<Category> getQuestionData() {
         return _questionData;
+    }
+
+    public int getNumCats() {
+        return _numCats;
     }
 
     public void showScene(Stage stage, Scene scene) {
