@@ -29,3 +29,9 @@ hs_err_pid*
 
 # Generated files
 .save/
+
+# Raw asset files
+*.ai
+
+# .jar generated
+MANIFEST.MF
