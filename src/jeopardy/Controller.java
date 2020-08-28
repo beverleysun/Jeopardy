@@ -139,4 +139,15 @@ public class Controller {
         int newWinnings = winningsInt + value;
         new File("./.save/winnings/"+ winningsInt).renameTo(new File("./.save/winnings/"+ newWinnings));
     }
+
+    public boolean gameCompleted() {
+        for (Category category : _questionData) {
+            for (Question question : category.getQuestions()) {
+                if (!question.isCompleted()) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }
