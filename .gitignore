@@ -35,3 +35,6 @@ hs_err_pid*
 
 # .jar generated
 MANIFEST.MF
+
+# For .jar generation
+FakeMain.java
