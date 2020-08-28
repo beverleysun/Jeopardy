@@ -2,6 +2,7 @@ package jeopardy;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -17,6 +18,7 @@ public class Jeopardy extends Application {
         SceneGenerator sceneGenerator = SceneGenerator.getInstance();
         Scene startScene = sceneGenerator.getStartScene(stage, scene);
         stage.setTitle("Jeopardy");
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("../logo.png")));
         Controller.getInstance().showScene(stage, startScene);
     }
 }
