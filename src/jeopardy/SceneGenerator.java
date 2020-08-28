@@ -57,7 +57,7 @@ public class SceneGenerator {
         resetButton.setOnMouseClicked(new ResetButtonHandler(stage, scene));
 
         // Set styles
-        scene.getStylesheets().add("style.css");
+        scene.getStylesheets().add("assets/style.css");
         jeopardyLabel.getStyleClass().add("start-jeopardy");
         startButton.getStyleClass().add("start-button");
         resetButton.getStyleClass().add("reset-button");
@@ -172,7 +172,7 @@ public class SceneGenerator {
         root.getChildren().add(winningsLabel);
 
         root.getStyleClass().add("background");
-        scene.getStylesheets().add("style.css");
+        scene.getStylesheets().add("assets/style.css");
 
         return scene;
     }
@@ -203,7 +203,7 @@ public class SceneGenerator {
         noButton.setOnMouseClicked(new ResetButtonHandler(stage, scene));
 
         // Set styles
-        scene.getStylesheets().add("style.css");
+        scene.getStylesheets().add("assets/style.css");
         prompt.getStyleClass().add("prompt");
         yesButton.getStyleClass().add("yes-button");
         noButton.getStyleClass().add("no-button");
@@ -273,7 +273,7 @@ public class SceneGenerator {
         answerInput.setMinHeight(confirmButton.getHeight()+44);
 
         // Styling
-        scene.getStylesheets().add("style.css");
+        scene.getStylesheets().add("assets/style.css");
         root.getStyleClass().add("answering-stage");
         questionLabel.getStyleClass().add("prompt");
         questionInfo.getStyleClass().add("question-info");
@@ -316,7 +316,7 @@ public class SceneGenerator {
         validationLabel.setTextAlignment(TextAlignment.CENTER);
 
         // Styling
-        scene.getStylesheets().add("style.css");
+        scene.getStylesheets().add("assets/style.css");
         backButton.getStyleClass().add("back-button");
         root.getStyleClass().add("answering-stage");
         return scene;
