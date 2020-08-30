@@ -7,12 +7,12 @@
     -fx-background-radius: 5;
 }
 
-.start-button, .reset-button, .back-button, .yes-button, .no-button{
+.start-button, .reset-button, .back-button, .yes-button, .no-button, .confirm-button{
     -fx-background-color: rgb(220,38,136);
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.5) , 15 , 0 , 0 , 0 );
 }
 
-.question-button, .confirm-button {
+.question-button {
     -fx-background-color: rgb(85,189,202);
     -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.7) , 15 , 0 , 0 , 0 );
 }
@@ -22,12 +22,12 @@
     -fx-cursor: hand;
 }
 
-.yes-button {
-    -fx-background-color: #99ff6f;
+.yes-button, .confirm-button {
+    -fx-background-color: #5bde28;
 }
 
 .no-button {
-    -fx-background-color: #ff6060;
+    -fx-background-color: rgb(220,38,136);
 }
 
 .start-jeopardy, .category-label, .prompt, .winnings-label, .question-info, .validation-label, .game-completed, .please-reset {
@@ -55,11 +55,11 @@
 }
 
 .winnings-pos, .question-info, .correct-label {
-    -fx-text-fill: #99ff6f;
+    -fx-text-fill: #5bde28;
 }
 
 .winnings-neg, .incorrect-label {
-    -fx-text-fill: #ff6060;
+    -fx-text-fill: rgb(220,38,136);
 }
 
 .background {
