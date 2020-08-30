@@ -158,8 +158,7 @@ public class Controller {
     }
 
     public void speak(String str) {
-        String command = "echo " + str + " | festival --tts";
-        System.out.println(command);
+        String command = "echo " + str + " | festival --tts ";
         ProcessBuilder pb = new ProcessBuilder("bash", "-c", command);
         try {
             Process process = pb.start();
