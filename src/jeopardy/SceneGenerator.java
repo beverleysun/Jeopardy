@@ -194,6 +194,8 @@ public class SceneGenerator {
         GridPane.setHalignment(yesButton, HPos.CENTER);
         GridPane.setHalignment(noButton, HPos.CENTER);
         GridPane.setHalignment(prompt, HPos.CENTER);
+        root.getColumnConstraints().add(new ColumnConstraints(130));
+        root.getColumnConstraints().add(new ColumnConstraints(130));
 
         // Buttons
         yesButton.setPrefWidth(100);
