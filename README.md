@@ -1,6 +1,6 @@
-#Welcome to Jeopardy!
+# Welcome to Jeopardy!
 
-##How to Play
+## How to Play
 If you've never heard of Jeopardy, now's the chance! Here's how to play:
 
 You will be presented with the start up screen. Simply click 'start' and you're on your way to riches!
@@ -11,13 +11,13 @@ Once you've completed all the questions, simply reset the game to play again.
 You can also add your own questions! 
 [Read below to find out how](#adding-categories-and-questions)
 
-##Download
-#####Note: It is very important that you have at least one category and that the categories folder is in the same directory as the .jar file
+## Download
+##### Note: It is very important that you have at least one category and that the categories folder is in the same directory as the .jar file
 
-###Requirements: 
+### Requirements: 
 You must have a Java Runtime Environment (JRE) installed on your system
 
-###Linux
+### Linux
 1. [Download](https://github.com/SOFTENG206-2020/assignment-2-beverleysun/raw/master/Jeopardy-Linux.jar) the Jeopardy-Linux.jar file
 2. [Download](https://github.com/SOFTENG206-2020/assignment-2-beverleysun/raw/master/categories.zip) the categories.zip file
    - Alternatively, you can create your own categories and questions. [See below for how to do this](#adding-categories-and-questions)
@@ -29,7 +29,7 @@ You must have a Java Runtime Environment (JRE) installed on your system
 6. You can now execute the game
    > `java -jar Jeopardy-Linux.jar`
 
-###Windows
+### Windows
 1. [Download](https://github.com/SOFTENG206-2020/assignment-2-beverleysun/raw/master/Jeopardy-Windows.jar) the Jeopardy-Windows.jar file
 2. [Download](https://github.com/SOFTENG206-2020/assignment-2-beverleysun/raw/master/categories.zip) the categories.zip file
    - Alternatively, you can create your own categories and questions. [See below for how to do this](#adding-categories-and-questions)
@@ -41,7 +41,7 @@ You must have a Java Runtime Environment (JRE) installed on your system
    > java -jar Jeopardy-Windows.jar
    ```
 
-###Mac
+### Mac
 1. [Download](https://github.com/SOFTENG206-2020/assignment-2-beverleysun/raw/master/Jeopardy-Mac.jar) the Jeopardy-Mac.jar file
 2. [Download](https://github.com/SOFTENG206-2020/assignment-2-beverleysun/raw/master/categories.zip) the categories.zip file
    - Alternatively, you can create your own categories and questions. [See below for how to do this](#adding-categories-and-questions)
@@ -53,7 +53,7 @@ You must have a Java Runtime Environment (JRE) installed on your system
    > java -jar Jeopardy-Windows.jar
    ```
 
-##Adding Categories And Questions
+## Adding Categories And Questions
 You may add your own categories and questions as long you follow the correct format.
 - The category file must be a plain text file
 - It must be located within the 'categories' folder
