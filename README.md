@@ -22,13 +22,13 @@ You must have a Java Runtime Environment (JRE) installed on your system
 2. [Download](https://github.com/SOFTENG206-2020/assignment-2-beverleysun/raw/master/categories.zip) the categories.zip file
    - Alternatively, you can create your own categories and questions. [See below for how to do this](#adding-categories-and-questions)
    - Unpack the .zip and move the 'categories' folder into the same directory as Jeopardy-Linux.jar
-4. Navigate to the directory where it was downloaded within the terminal
-   - Use `cd "path/to/jar"`
-5. Now set executable permissions on Jeopardy-Linux.jar
-   - Use `chmod +x Jeopardy-Linux.jar`
-6. You can now execute the game
-   - Use `java -jar Jeopardy-Linux.jar`
-
+4. Open the terminal and execute the following commands
+   ```
+   > cd "path/to/jar"
+   > chmod +x Jeopardy-Linux.jar
+   > java -jar Jeopardy-Linux.jar
+   ```
+   
 ### Windows
 1. [Download](https://github.com/SOFTENG206-2020/assignment-2-beverleysun/raw/master/Jeopardy-Windows.jar) the Jeopardy-Windows.jar file
 2. [Download](https://github.com/SOFTENG206-2020/assignment-2-beverleysun/raw/master/categories.zip) the categories.zip file
