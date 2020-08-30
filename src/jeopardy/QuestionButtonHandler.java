@@ -27,5 +27,6 @@ public class QuestionButtonHandler extends ButtonHandler {
 
         Scene askQuestionScene = _sceneGenerator.getAskQuestionScene(_stage, _scene, category, questionToAsk);
         _controller.showScene(_stage, askQuestionScene);
+        _controller.speak(questionToAsk.getQuestion());
     }
 }
