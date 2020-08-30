@@ -57,6 +57,7 @@ You must have a Java Runtime Environment (JRE) installed on your system
 You may add your own categories and questions as long you follow the correct format.
 - The category file must be a plain text file
 - It must be located within the 'categories' folder
+- The 'categories' folder must be in the same directory that the .jar file is in
 - You may not change the name of the 'categories' folder however, you can name the category file whatever you like
 - Each question within a category must be separated by a new line
 - Within each question, the format is as follows:
