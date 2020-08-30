@@ -14,7 +14,7 @@ You can also add your own questions!
 ## Download
 ##### Note: It is very important that you have at least one category and that the categories folder is in the same directory as the .jar file
 
-### Requirements: 
+### Requirements
 You must have a Java Runtime Environment (JRE) installed on your system
 
 ### Linux
