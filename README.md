@@ -47,7 +47,7 @@ You must have a Java Runtime Environment (JRE) installed on your system
    - Alternatively, you can create your own categories and questions. [See below for how to do this](#adding-categories-and-questions)
    - Unpack the .zip and move the 'categories' folder into the same directory as Jeopardy-Linux.jar
 3. You can now simply double-click the .jar and the game should run
-4. Alternatively, you can execute the following commands in the command line
+4. Alternatively, you can execute the following commands in the terminal
    ```
    > cd "path/to/jar"
    > java -jar Jeopardy-Mac.jar
