@@ -50,7 +50,7 @@ You must have a Java Runtime Environment (JRE) installed on your system
 4. Alternatively, you can execute the following commands in the command line
    ```
    > cd "path/to/jar"
-   > java -jar Jeopardy-Windows.jar
+   > java -jar Jeopardy-Mac.jar
    ```
 
 ## Adding Categories And Questions
