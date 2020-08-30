@@ -156,4 +156,15 @@ public class Controller {
         }
         return true;
     }
+
+    public void speak(String str) {
+        String command = "echo " + str + " | festival --tts";
+        System.out.println(command);
+        ProcessBuilder pb = new ProcessBuilder("bash", "-c", command);
+        try {
+            Process process = pb.start();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
