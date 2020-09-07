@@ -8,13 +8,12 @@ You will be presented with the start up screen. Simply click 'start' and you're 
 You can also add your own questions! 
 [Read below to find out how](#adding-categories-and-questions)
 
+## Requirements
+- You must have a [Java Runtime Environment (JRE)](https://www.oracle.com/java/technologies/javase-jre8-downloads.html) installed on your system
+- If you encounter a JNI error, try installing the [Java11 JDK](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) for your system
+
 ## Download
 ##### Note: It is very important that you have at least one category and that the categories folder is in the same directory as the .jar file
-
-### Requirements
-You must have a [Java Runtime Environment (JRE)](https://www.oracle.com/java/technologies/javase-jre8-downloads.html) installed on your system
-
-If you encounter a JNI error, try installing the [Java11 JDK](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) for your system
 
 ### Linux
 1. [Download](https://github.com/SOFTENG206-2020/assignment-2-beverleysun/raw/master/Jeopardy-Linux.jar) the Jeopardy-Linux.jar file
@@ -63,5 +62,5 @@ You may add your own categories and questions as long you follow the correct for
   - value,question,answer
     - So, the line must start with the question value (it must be an integer), followed by a comma, then the actual question, followed by a comma, then the answer.
   - One example might be
-    > 100,The largest country by area in the world,Russia
+    *100,The largest country by area in the world,Russia*
     
