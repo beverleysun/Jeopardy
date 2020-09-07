@@ -61,6 +61,5 @@ You may add your own categories and questions as long you follow the correct for
 - Within each question, the format is as follows:
   - value,question,answer
     - So, the line must start with the question value (it must be an integer), followed by a comma, then the actual question, followed by a comma, then the answer.
-  - One example might be
-    *100,The largest country by area in the world,Russia*
+  - One example might be: *100,The largest country by area in the world,Russia*
     
