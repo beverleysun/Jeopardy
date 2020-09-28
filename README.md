@@ -8,6 +8,14 @@ You will be presented with the start up screen. Simply click 'start' and you're 
 You can also add your own questions! 
 [Read below to find out how](#adding-categories-and-questions)
 
+## Screenshots
+<div>
+  <img src="./img/start.png" alt="Start" width=49.7%/>
+  <img src="./img/question-board.png" alt="Question Board" width=49.7%/>
+  <img src="./img/question.png" alt="Question" width=49.7%/>
+  <img src="./img/correct.png" alt="Correct" width=49.7%/>
+</div>
+
 ## Requirements
 - You must have a [Java Runtime Environment (JRE)](https://www.oracle.com/java/technologies/javase-jre8-downloads.html) installed on your system
 - If you encounter a JNI error, try installing the [Java11 JDK](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) for your system
@@ -62,4 +70,3 @@ You may add your own categories and questions as long you follow the correct for
   - value,question,answer
     - So, the line must start with the question value (it must be an integer), followed by a comma, then the actual question, followed by a comma, then the answer.
   - One example might be: *100,The largest country by area in the world,Russia*
-    
